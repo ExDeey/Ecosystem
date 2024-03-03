@@ -1,5 +1,7 @@
 
 #include "Affliction.h"
+#include <vector>
+#include <memory>
 using namespace std;
 
 #ifndef AFFLICTIONS_H
@@ -54,5 +56,21 @@ public:
     bool virtual tick() override;
 };
 
+
+
+
+
+class Poison : public Affliction {
+protected:
+    std::vector<std::unique_ptr<Affliction>> afflictions; // Container for other afflictions
+    int duration;
+
+public:
+    Poison(GameObject *target, int duration, std::vector<Affliction*>& poisonEffectsVector);
+    void addAffliction(Affliction* affliction);
+    void addAllAff(vector<Affliction> poisonEffectsVector);
+
+    bool virtual tick() override;
+};
 
 #endif
