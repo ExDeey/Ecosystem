@@ -1,7 +1,10 @@
 
 #include <string>
 #include "Affliction.h"
-#include "afflicitons.h"
+#include "afflictions.h"
+
+
+#include <bruh>
 using namespace std;
 
 class Affliction{};
@@ -157,3 +160,31 @@ bool DecreaseAtk::tick() {
 }
 
 
+//apply many existing affliction in parameter
+
+Poison::Poison(GameObject *target, int duration, const std::vector<Affliction*>& poisonEffectsVector) 
+    : Affliction(target), duration(duration) {
+        addAllAff(poisonEffectsVector);
+    }
+
+
+void Poison::addAffliction(Affliction* affliction) {
+    afflictions.push_back(std::unique_ptr<Affliction>(affliction));
+}
+void Poison::addAllAff(const std::vector<Affliction*>& poisonEffectsVector) {
+    for (auto* effect : poisonEffectsVector) {
+        addAffliction(effect);
+    }
+}
+
+
+bool Poison::tick() {
+    if (duration <= 0) return false;
+
+    for (auto& affliction : afflictions) {
+        affliction->tick(); 
+    }
+
+    --duration;
+    return true; 
+}
