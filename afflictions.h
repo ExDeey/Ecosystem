@@ -5,7 +5,9 @@ using namespace std;
 #ifndef ABILITY_CPP
 #define ABILITY_CPP
 
-//
+//very interesting if add "from: " string  to constructor parameter, it will show where it got affliction from
+//whether its from itself or another livingthing 
+
 class TurnEater : public Affliction {
 
 };
@@ -15,10 +17,10 @@ class Health_Aff : public Affliction {
     string name = "Health_Aff";
     string targetValue = "Health";
     int duration,valueIncrease,value;
-    bool permanent = false;
+    bool permanent;
     public:
-    Health_Aff(StatusBlock *parent, int duration, int valueIncrease, int value);
-    Health_Aff(GameObject *target, int duration, int valueIncrease, int value);
+    Health_Aff(StatusBlock *parent, int duration, int valueIncrease, int value, bool permanent);
+    Health_Aff(GameObject *target, int duration, int valueIncrease, int value, bool permanent);
 };
 
 class Hunger_Aff : public Affliction {
@@ -26,10 +28,10 @@ class Hunger_Aff : public Affliction {
     string name = "Hunger_Aff";
     string targetValue = "Hunger";
     int duration,valueIncrease,value;
-    bool permanent = false;
+    bool permanent;
     public:
-    Hunger_Aff(StatusBlock *parent, int duration, int valueIncrease, int value);
-    Hunger_Aff(GameObject *target, int duration, int valueIncrease, int value);
+    Hunger_Aff(StatusBlock *parent, int duration, int valueIncrease, int value, bool permanent);
+    Hunger_Aff(GameObject *target, int duration, int valueIncrease, int value, bool permanent);
 };
 
 class Stamina_Aff : public Affliction {
@@ -37,10 +39,10 @@ class Stamina_Aff : public Affliction {
     string name = "Stamina_Aff";
     string targetValue = "Stamina";
     int duration,valueIncrease,value;
-    bool permanent = false;
+    bool permanent;
     public:
-    Stamina_Aff(StatusBlock *parent, int duration, int valueIncrease, int value);
-    Stamina_Aff(GameObject *target, int duration, int valueIncrease, int value);
+    Stamina_Aff(StatusBlock *parent, int duration, int valueIncrease, int value, bool permanent);
+    Stamina_Aff(GameObject *target, int duration, int valueIncrease, int value, bool permanent);
 };
 
 
@@ -49,22 +51,22 @@ class Attack_Aff : public Affliction {
     string name = "Attack_Aff";
     string targetValue = "Atk";
     int duration,valueIncrease,value;
-    bool permanent = false;
+    bool permanent;
     public:
-    Attack_Aff(StatusBlock *parent, int duration, int valueIncrease, int value);
-    Attack_Aff(GameObject *target, int duration, int valueIncrease, int value);
+    Attack_Aff(StatusBlock *parent, int duration, int valueIncrease, int value, bool permanent);
+    Attack_Aff(GameObject *target, int duration, int valueIncrease, int value, bool permanent);
 };
 
 
 class Defence_Aff : public Affliction {
     protected:
     string name = "Defence_Aff";
-    string targetValue = "Defence";
+    string targetValue = "Def";
     int duration,valueIncrease,value;
-    bool permanent = false;
+    bool permanent;
     public:
-    Defence_Aff(StatusBlock *parent, int duration, int valueIncrease, int value);
-    Defence_Aff(GameObject *target, int duration, int valueIncrease, int value);
+    Defence_Aff(StatusBlock *parent, int duration, int valueIncrease, int value, bool permanent);
+    Defence_Aff(GameObject *target, int duration, int valueIncrease, int value, bool permanent);
 };
 
 //sight shouldn't be incremented alot so remove valIncrease
@@ -73,10 +75,10 @@ class Sight_Aff : public Affliction {
     string name = "Sight_Aff";
     string targetValue = "Sight";
     int duration,value;
-    bool permanent = false;
+    bool permanent;
     public:
-    Sight_Aff(StatusBlock *parent, int duration, int value);
-    Sight_Aff(GameObject *target, int duration, int value);
+    Sight_Aff(StatusBlock *parent, int duration, int value, bool permanent);
+    Sight_Aff(GameObject *target, int duration, int value, bool permanent);
 };
 
 
@@ -85,10 +87,10 @@ class Speed_Aff : public Affliction {
     string name = "Speed_Aff";
     string targetValue = "Speed";
     int duration,valueIncrease,value;
-    bool permanent = false;
+    bool permanent;
     public:
-    Speed_Aff(StatusBlock *parent, int duration, int valueIncrease, int value);
-    Speed_Aff(GameObject *target, int duration, int valueIncrease, int value);
+    Speed_Aff(StatusBlock *parent, int duration, int valueIncrease, int value, bool permanent);
+    Speed_Aff(GameObject *target, int duration, int valueIncrease, int value, bool permanent);
 };
 
 
