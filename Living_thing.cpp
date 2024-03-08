@@ -4,17 +4,13 @@
 
 Animal::Animal(Layer *parent, int x, int)
         : LivingThing(parent, x, y){
-        initializeStats();
-        initializeAfflictions();
-        initializeAbilities();        }
+               }
 
 
 
 Plant::Plant(Layer *parent, int x, int )
         : LivingThing(parent, x, y){
-        initializeStats();
-        initializeAfflictions();
-        initializeAbilities();
+        
         }
 
 
