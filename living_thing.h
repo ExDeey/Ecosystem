@@ -213,7 +213,7 @@ public:
 
 class Bush : public Plant {
 protected:
-    int Health;
+    int Health, fruits, hunger_yield;
     string name = "Bush";
     
 public:
