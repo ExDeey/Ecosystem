@@ -58,16 +58,16 @@ class Attack_Aff : public Affliction {
 };
 
 
-class Defence_Aff : public Affliction {
-    protected:
-    string name = "Defence_Aff";
-    string targetValue = "Def";
-    int duration,valueIncrease,value;
-    bool permanent;
-    public:
-    Defence_Aff(StatusBlock *parent, int duration, int valueIncrease, int value, bool permanent);
-    Defence_Aff(GameObject *target, int duration, int valueIncrease, int value, bool permanent);
-};
+// class Defence_Aff : public Affliction {
+//     protected:
+//     string name = "Defence_Aff";
+//     string targetValue = "Def";
+//     int duration,valueIncrease,value;
+//     bool permanent;
+//     public:
+//     Defence_Aff(StatusBlock *parent, int duration, int valueIncrease, int value, bool permanent);
+//     Defence_Aff(GameObject *target, int duration, int valueIncrease, int value, bool permanent);
+// };
 
 //sight shouldn't be incremented alot so remove valIncrease
 class Sight_Aff : public Affliction {
