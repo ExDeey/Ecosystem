@@ -34,12 +34,12 @@ Attack_Aff::Attack_Aff(GameObject *target, int duration, int valueIncrease, int 
 {}
 
 
-Defence_Aff::Defence_Aff(StatusBlock *parent, int duration, int valueIncrease, int value, bool permanent) 
-: Affliction(parent), duration(duration),valueIncrease(valueIncrease),value(value), permanent(permanent)
-{}
-Defence_Aff::Defence_Aff(GameObject *target, int duration, int valueIncrease, int value, bool permanent) 
-: Affliction(target), duration(duration),valueIncrease(valueIncrease),value(value), permanent(permanent)
-{}
+// Defence_Aff::Defence_Aff(StatusBlock *parent, int duration, int valueIncrease, int value, bool permanent) 
+// : Affliction(parent), duration(duration),valueIncrease(valueIncrease),value(value), permanent(permanent)
+// {}
+// Defence_Aff::Defence_Aff(GameObject *target, int duration, int valueIncrease, int value, bool permanent) 
+// : Affliction(target), duration(duration),valueIncrease(valueIncrease),value(value), permanent(permanent)
+// {}
 
 
 Sight_Aff::Sight_Aff(StatusBlock *parent, int duration, int value, bool permanent) 
@@ -50,11 +50,11 @@ Sight_Aff::Sight_Aff(GameObject *target, int duration, int value, bool permanent
 {}
 
 
-Speed_Aff::Speed_Aff(StatusBlock *parent, int duration, int valueIncrease, int value) 
-: Affliction(parent), duration(duration),valueIncrease(valueIncrease),value(value)
+Speed_Aff::Speed_Aff(StatusBlock *parent, int duration, int valueIncrease, int value, bool permanent) 
+: Affliction(parent), duration(duration),valueIncrease(valueIncrease),value(value),permanent(permanent)
 {}
-Speed_Aff::Speed_Aff(GameObject *target, int duration, int valueIncrease, int value) 
-: Affliction(target), duration(duration),valueIncrease(valueIncrease),value(value)
+Speed_Aff::Speed_Aff(GameObject *target, int duration, int valueIncrease, int value, bool permanent) 
+: Affliction(target), duration(duration),valueIncrease(valueIncrease),value(value),permanent(permanent)
 {}
 
 
