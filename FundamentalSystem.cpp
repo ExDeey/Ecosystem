@@ -1,14 +1,18 @@
-#include "Fund.h"
+#include "FundametnalSystem.h"
 #include <sstream> 
 #include <string>
 #include <vector>
 using namespace std;
+
+
+
 class LayerSystem {
 private:
     //log ability vector
     vector<string> abilityUsageRecords;
 
 public:
+
     void recordAbility(const string& record) {
         abilityUsageRecords.push_back(record);
     }
@@ -25,10 +29,70 @@ public:
 
 
 
+//////////////////////////////Return layer x y object property////////////////////////////////////////////////////////
+class LayerSystem {
+public:
+    //std::vector<Layer*> layers;
+
+    std::vector<std::string> collectInfoAtCoord(int x, int y) {
+
+    std::vector<std::string> collectedInfo;
+
+    for (Layer* layer : this->layers) { 
+        GameObject* obj = layer->getObjectAt(x, y);
+        if (obj != nullptr) {
+            stringstream details;
+            details << "Object Name: " << obj->getName();
+            details << "Layer: " << layer->getName();
+            details << ", Position: (" << x << ", " << y << ")";
+
+            details << ", Abilities: ";
+            for (Ability* ability : obj->getStat()->getAbilitySystem()->abilityGroup) {
+                details << ability->getName() << ";\n";
+            }
+
+            details << ", Afflictions: ";
+            for (Affliction* affliction : obj->getStat()->getAfflictionSystem()->afflictionGroup) {
+                details << affliction->getName() << "; \n"; 
+            }
+
+            details << ", Stats: ";
+            for (StatParam* stat : obj->getStat()->statParamGroup) {
+                details << stat->getName() << ": " << stat->getValue() << "; \n"; 
+            }
+
+            collectedInfo.push_back(details.str());
+        }
+    }
+        return collectedInfo;
+    }
+};
 
 
+class GameObject {
+public:
 
+    //const vector<StatParam*>& getStats() const { return statParamGroup; }
+    const AbilitySystem* getAbilitySystem() const { return abilitySystem; }
+    const AfflictionSystem* getAfflictionSystem() const { return afflictionSystem; }
+};
 
+class Layer {
+public:
+    
+    //vector<vector<GameObject*>> objects;
+
+    GameObject* getObjectAt(int x, int y) {
+        if (x >= 0 && x < objects.size() && y >= 0 && y < objects[x].size()) {
+            return objects[x][y];
+        }
+        return nullptr;
+    }
+
+    std::string getName() const {
+        // Return layer's name
+    }
+};
 
 
 
